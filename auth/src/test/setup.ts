@@ -8,7 +8,7 @@ import request from 'supertest'
 
 
 declare global {
-  var signin: () => Promise<string[]>;
+  var getCookie: () => Promise<string[]>;
 }
 
 let mongo: MongoMemoryServer;
@@ -43,7 +43,7 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-global.signin = async () => {
+global.getCookie = async () => {
   const email = 'test@test.com';
   const password = 'password';
 
